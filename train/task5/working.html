@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <div>
+<h1>To Do List</h1>
+    <div>
+      <input type="text" name="name" id="name" placeholder="enter to do Item">
+      <button name="button" id ="but">Add</button>
+    </div>
+  </div>
+  <div id="viewData">
+  </div>
+<script type="text/javascript">
+  d=document.getElementById("viewData");
+  document.getElementById("but").addEventListener('click',function () {
+      //var data = document.getElementById('name').value;
+      var data = document.getElementById('name').value;
+      //console.log(data);
+      addData(data);
+  });
+  /*function getData() {
+    //console.log(document.getElementById('name').value);
+    return document.getElementById('name').value;
+  }*/
+  function addData(data) {
+    //console.log(data);
+    d.innerHTML+="<li>"+data+"</li>";
+    //console.log(d.innerHTML);
+  }
+  </script>
+  </body>
+</html>

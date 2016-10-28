@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      ul li{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      ul li.checked {
+        background: #888;
+        color: #fff;
+        text-decoration: line-through;
+      }
+      .strikethrough:checked + li{
+        text-decoration:line-through;
+      }
+
+    </style>
+  </head>
+  <body>
+  <div>
+    <h1>To Do List</h1>
+    <div>
+      <input type="text" name="name" id="name" >
+      <button onclick="newNode()" name="button" id ="but">Add</button>
+    </div>
+  </div>
+  <ul id="viewData">
+  </ul>
+<script type="text/javascript">
+  var count =0;
+  // var listNode = document.getElementsByTagName('LI');
+  // var i;
+  // for (var i = 0; i < listNode.length; i++) {
+  //   var span = document.createElement("button");
+  //   var txt = document.createTextNode("Remove");
+  //   span.className = "close";
+  //   span.appendChild(txt);
+  //   listNode[i].appendChild(span);
+  // }
+  ul=document.getElementById("viewData");
+  var list = document.querySelector('ul');
+  list.addEventListener('click',function(e) {
+    if (e.target.tagName === 'LI') {
+      e.target.classList.toggle('checked');
+    }
+  });
+  function strikethrough(e){
+    if(e.checked){
+      document.getElementById(e.parentNode.id).style.textDecoration="line-through";
+    }
+    else{
+      document.getElementById(e.parentNode.id).style.textDecoration="none";
+    }
+  }
+  function newNode() {
+    count++;
+      var data = document.getElementById('name').value;
+      var li = document.createElement("li");
+      li.id = "li_" + count;
+      var newel = document.createTextNode(data);
+      var checkBox = document.createElement("input");
+        checkBox.type = "checkbox";
+        var i = "cb_" + count;
+        checkBox.setAttribute("id","i");
+        checkBox.setAttribute("onclick","strikethrough(this)");
+
+      var remButton  = document.createElement("input");
+        remButton.type = "button";
+        remButton.id = "rem_" + count;
+        remButton.setAttribute("value","Remove");
+      li.appendChild(checkBox);
+      li.appendChild(newel);
+      li.appendChild(remButton);
+      ul.appendChild(li);
+
+      remButton.addEventListener("click",function(){
+
+      ul.removeChild(li);
+      });
+  }
+
+  </script>
+  </body>
+</html>

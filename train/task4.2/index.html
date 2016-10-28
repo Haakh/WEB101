@@ -1,0 +1,20 @@
+<html>
+<body>
+  <div onclick="changeColor()"  id ="one">
+    The outermost.
+    <div onclick="changeColor()" id ="two">
+      The middle one.
+      <div onclick="changeColor()" id ="three">
+        Target 3rd innermost
+      </div>
+    </div>
+  </div>
+  <script>
+    function changeColor(){
+      document.getElementById('one').style.backgroundColor="red";
+      document.getElementById('two').style.backgroundColor="green";
+      document.getElementById('three').style.backgroundColor="blue";
+    }
+  </script>
+</body>
+</html>

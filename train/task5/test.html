@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+  <body>
+    <div>
+
+      <input type="text" name = "name" id="itemval">
+      <button name ="button" id ="butt">
+        CLick Me
+      </button>
+      </div>
+
+        <div id="listitem">
+
+        </div>
+
+
+<script>
+ var a=document.getElementById('listitem');
+
+  var x = document.getElementById('butt');
+  x.addEventListener("click",function(){
+    var val = document.getElementById('itemval').value;
+    var html = "<li>"+val+"</li>";
+    a.innerHtml += html;
+});
+</script>
+  </body>
+</html>

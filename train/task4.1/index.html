@@ -1,0 +1,13 @@
+<html>
+<body>
+  <div onclick="changeColor()" id="myDiv" >Hey there!</div>
+
+<script>
+function changeColor(){
+  document.getElementById("myDiv").onclick = function(e){
+      e.target.style.backgroundColor="red";
+  }
+}
+</script>
+</body>
+</html>
