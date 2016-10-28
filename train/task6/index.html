@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<body>
+  <script>
+    function todoItem(){
+      this.caption;
+      this.isCompleted;
+      this.toggle = function () {
+        if(this.isCompleted === true){
+          this.isCompleted = false;
+        }
+        else {
+          this.isCompleted = true;
+        }
+      };
+      
+    }
+
+    function todoApp(){
+      this.todoCollection = [];
+
+    }
+    todoApp.prototype.render = function () {
+
+    };
+    todoApp.prototype.addItem = function () {
+
+    };
+  </script>
+</body>
+</html>
