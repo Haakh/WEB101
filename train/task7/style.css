@@ -4,3 +4,9 @@ h1 {
 div {
   text-align: center;
 }
+ul {
+  text-align: center;
+}
+.completed {
+  text-decoration: line-through;
+}
