@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+
+  </head>
+  <body class="container">
+    <div class="">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>Todo List</h2></div>
+      </div>
+      <div class="jumbotron">
+        <input type="text" class="form-control" id="name" ><br>
+        <button id="add" class="btn btn-success"> add item</button>
+      </div>
+
+      <div id="post">
+
+      </div>
+    </div>
+
+<script type="text/javascript">
+  // initialize
+  var arr=[];
+  var i=0;
+  var post = document.getElementById('post');
+
+  //Event Listner
+  document.getElementById('add').addEventListener("click",function functionName(e) {
+    var a=document.getElementById('name').value;
+    if(a!=""){
+      addData(a);
+      showData();
+      }
+      console.log(arr);
+  });
+
+  // addind data to array
+  function addData(a) {
+    arr.push(a);
+  }
+
+  // Listing data Items
+  function showData() {
+    // console.log(arr.length);
+    //console.log(post.innerHTML);
+    post.innerHTML= "";
+    for(i=0;i<arr.length;i++){
+      post.innerHTML += "<div id="+i+"><input type='checkbox' onclick='strikeData(this)'><span>"+arr[i]+"</span><button onclick='removeData("+i+",this)' class='btn btn-primary'> remove </button></div>";
+      // console.log(post.innerHTML);
+    }
+  }
+
+  //removing data
+  function removeData(x,e) {
+    arr.splice(x, 1);
+    // console.log(arr);
+    showData();
+  }
+
+  //toggling strike with checkbox
+  function strikeData(e) {
+        if (e.checked) {
+            document.getElementById(e.parentNode.id).style.textDecoration = "line-through";
+            }else {
+            document.getElementById(e.parentNode.id).style.textDecoration = "none";
+          }
+    }
+
+</script>
+
+  </body>
+</html>
