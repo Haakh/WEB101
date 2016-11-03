@@ -10,3 +10,11 @@ ul {
 .completed {
   text-decoration: line-through;
 }
+li {
+  width:auto;
+
+  margin : 10px;
+}
+.datastyle{
+  margin : 10px;
+}

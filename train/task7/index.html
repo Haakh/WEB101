@@ -12,21 +12,53 @@
 
   </head>
 <body>
-  <div class="jumbotron text-center">
-    <h1>My To Do App</h1>
-    <p>Enter New Tasks</p>
-  </div>
 
-    <div>
-
-        <input type = "text" id = "addText" placeholder="Enter your new Task">
-        <input type = "submit" class ="btn btn-primary" id = "butt" value="Add">
-
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="http://cdn.as7.org/59_20secretipadtodolistpapericon.png" height="30" width="40">
+        </a>
+      </div>
     </div>
-    <ul class = "list-group" id = "addNewItem">
-      <!-- <ul id = "start"></ul> -->
-    </ul>
+  </nav>
 
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>My To Do App</h1>
+      <p>Enter New Tasks</p>
+    </div>
+
+      <div>
+        <form onsubmit="return false">
+
+            <!-- <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Item</span>
+                <input type="text" id = "addText" class="form-control" placeholder="Enter your Next Task" aria-describedby="basic-addon1">
+            </div> -->
+
+          <!-- <input type = "submit" class ="btn btn-primary" id = "butt" value="Add"> -->
+
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="input-group">
+                <input type="text" id ="addText" class="form-control" placeholder="Enter Next Task">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" id = "butt"type="button">Add</button>
+                </span>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+
+
+
+        </form>
+      </div>
+      <ul class = "list-group" id = "addNewItem">
+        <!-- <ul id = "start"></ul> -->
+      </ul>
+  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="myscript.js"></script>
 </body>
