@@ -1,9 +1,9 @@
+
 <?php
   session_start();
-  if(!isset($_SESSION['email']))
-    $_SESSION['email'] = [];
+  if(!isset($_SESSION['todoCollection']))
+    $_SESSION['todoCollection'] = [];
  ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,20 +34,14 @@
   </nav>
 
   <div id ="signup">
-    <h1>Login</h1>
+    <h1>Welcome</h1>
   </div>
+  <div>
 
-  <form action="login-post.php" method="post">
-    <div class="form-group">
-      <label for="email">Email address:</label>
-      <input type="email" class="form-control" name="email" id="email">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" name="pwd" id="pwd">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+  </div>
+  <div>
+    <a href="login.php">Logout</a>
+  </div>
 
 </div>
 

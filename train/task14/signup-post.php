@@ -1,4 +1,5 @@
 <?php
+  session_start();
 
   //All Variables
   $servername = "localhost";
@@ -8,6 +9,9 @@
   $name = $_POST['name'];
   $email = $_POST['email'];
   $pass = $_POST['pwd'];
+
+  if(!isset($_SESSION['name']))
+    array_push($_SESSION['user'],['id'=>session_id(),'name'=>$name]);
   //Connect to the database USER
   $conn = mysqli_connect($servername, $username, $password, $db);
   //Check for connection faliure
