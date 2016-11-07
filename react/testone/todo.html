@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Todo App!</title>
+  <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+
+  </div>
+
+  <script type="text/babel">
+    var destination = document.querySelector("#container");
+
+    var TodoItems = React.createClass({
+      render: function() {
+          var todoEntries = this.props.entries;
+
+          function createTasks(item) {
+            return (
+              <li key={item.key}>{item.text}
+              <button type="submit">Remove</button>
+              </li>
+            );
+          }
+
+          var listItems = todoEntries.map(createTasks);
+
+          return (
+            <ul>
+              {listItems}
+
+            </ul>
+          );
+      }
+    });
+
+  var TodoList = React.createClass({
+      getInitialState: function() {
+        return {
+          items: []
+          };
+      },
+
+      addItem: function(e) {
+        var itemArray = this.state.items;
+
+        itemArray.push(
+          {
+            text: this._inputElement.value,
+            key: Date.now()
+          }
+        );
+
+        this.setState({
+          items: itemArray
+        });
+
+        this._inputElement.value = "";
+        this._inputElement.value = "";
+        e.preventDefault();
+
+      },
+
+      render: function() {
+        return (
+          <div className="todoListMain">
+            <div className="header">
+              <form onSubmit={this.addItem}>
+                <input placeholder = "Enter Task" ref={(a) => this._inputElement = a} />
+                <button type="submit">add</button>
+              </form>
+            </div>
+            <TodoItems entries={this.state.items}/>
+          </div>
+        );
+      }
+    });
+
+    ReactDOM.render(
+      <div>
+        <TodoList />
+      </div>,
+      destination
+    );
+  </script>
+</body>
+
+</html>
