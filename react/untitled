@@ -1,0 +1,77 @@
+var name = "Sanket";
+var gender = "male";
+
+var obj = {
+  name: name,
+  gender: gender
+}
+
+
+var obj = { name, gender };
+
+------
+
+var {name, gender} = obj;
+
+
+
+function sum(a ,b) {
+    return a+b;
+}
+
+
+ES6 Destructuring:
+
+var arr = [10, 20];
+
+var total = sum(arr[0], arr[1]);
+
+var total = sum(...arr);
+
+
+
+
+render() {
+
+  var properties = {
+    x: 5,
+    y: 10
+  }
+
+  return <div {...properties}>Hello</div>;
+
+}
+
+-----------------
+
+
+
+import React, {Component} from 'react';
+
+class TodoItem extends Component {
+
+  render() {
+    return <div>Hello {this.props.name}</div>
+  }
+  
+}
+
+----
+
+
+var TodoItem = function({name}){
+  return <div>Hello {name}</div>;
+}
+
+----
+
+var TodoItem = ({name}) => <div>Hello {name}</div>
+
+
+----
+
+class App {
+  render() {
+    return <TodoItem x={this.state.x} />;
+  }
+}

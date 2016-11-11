@@ -1,31 +1,22 @@
 import React from 'react';
-import _ from 'lodash';
-export default class TodosListItem extends React.Component {
 
-  constructor(props){
-    super(props);
 
-    this.state = {
-      isRemoved: false
-    };
+class TodoItem extends React.Component {
+
+
+  onDeleteHandler() {
+    this.props.onDeleteItem(this.props.index);
   }
 
-  render(){
-    return (
-      <tr>
-        <td>
-          <input type="checkbox" />
-        </td>
-        <td> {this.props.task} </td>
-        <td>
-          <button onClick={this.onRemoveClick.bind(this)}>Remove</button>
-        </td>
-      </tr>
-    );
 
+
+  render() {
+    return <li>
+      [{this.props.isCompleted ? 'Completed': 'Incomplete'}] {this.props.caption}
+      <input type="button" value="Delete" onClick={this.onDeleteHandler.bind(this)} />
+      </li>;
   }
 
-  onRemoveClick(){
-    this.setState({ isRemoved: true});
-  }
 }
+
+export default TodoItem;

@@ -4,81 +4,205 @@ import logo from './logo.svg';
 // import TodosList from './todos-list';
 import './App.css';
 
-// const todos = [
-//   {
-//     task: 'One',
-//     isCompleted: false
-//   },
-//   {
-//     task: 'Two',
-//     isCompleted: true
-//   }
-// ];
-var TodoItems = React.createClass({
-  render: function() {
-    var todoEntries = this.props.entries;
-
-    function createTasks(item) {
-      return <li key={item.key}>{item.text}</li>
-    }
-
-    var listItems = todoEntries.map(createTasks);
-    return (
-      <ul className="theList">
-        {listItems}
-      </ul>
-);
-    }
-
-});
+import TodoList from './todo-list';
+import UserInput from './user';
 
 
-class App extends Component {
-  constructor(props){
-    super(props);
+class App extends React.Component {
+
+  constructor() {
+
+    super();
+
     this.state = {
-      items: []
-    };
-  }
-  getInitialState() {
-    return {
-      items: []
-    };
-  }
-
-  addItem(e) {
-    var itemArray = this.state.items;
-
-      itemArray.push(
+      todoItems: [
         {
-          text: this._inputElement.value,
-          key: Date.now()
+          caption: "First",
+          isCompleted: true
         }
-      );
+      ]
+    };
 
-      this.setState({
-        items: itemArray
-      });
+  }
 
-      this._inputElement.value = "";
+  onAddItemHandler(itemCaption){
 
-      e.preventDefault();
+    this.state.todoItems.push({
+      caption: itemCaption,
+      isCompleted: false
+    });
+
+    this.forceUpdate();
+
+  }
+
+  onDeleteItemHandler(index) {
+
+    this.state.todoItems.splice(index, 1);
+    this.forceUpdate();
+
   }
 
   render() {
-    return (
-      <div>
-        <h1>Todo App</h1>
-        <form onSubmit ={this.addItem}>
-          <input type ="text" id ="inp" placeholder="Enter Next task" ref={(a) => this._inputElement = a}/>
-          <button>Enter</button>
-        </form>
-
-
-        <TodoItems entries={this.state.items}/>
-      </div>
-    );
+    return <div>
+      <UserInput onAddItem={this.onAddItemHandler.bind(this)} />
+      <TodoList items={this.state.todoItems} onDeleteItem={this.onDeleteItemHandler.bind(this)} />
+    </div>;
   }
+
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { Component } from 'react';
+// import './App.css';
+//
+// class App extends Component {
+//   render() {
+//     return (
+//       <div >
+//         <p>Hello</p>
+//       </div>
+//     );
+//   }
+// }
+//
+// export default App;
+
+
+
+// import React, { Component } from 'react'
+// import { createStore, combineReducers } from 'redux'
+// // import { Provider } from 'react-redux'
+//
+// //Reducer 1
+//
+// var reducer_0 = function(state = {}, action) {
+//   switch(action.type){
+//     case 'ADD_ITEM':
+//           return {
+//             ...state,
+//             caption: action.caption
+//           }
+//
+//     default:
+//           return state;
+//   }
+// }
+//
+//
+// //Reducer 2
+// var reducer_1 = function(state = {},action) {
+//   switch(action.type){
+//     case 'TOGGLE':
+//             return {
+//               ...state,
+//               isCompleted: action.isCompleted
+//             }
+//     default:
+//             return state;
+//   }
+// }
+//
+// //Merge those 2 reducers
+//
+// var reducer = combineReducers({
+//     add: reducer_0,
+//     toggle: reducer_1
+// })
+// //
+// //
+// //Create the store
+// var store = createStore(reducer)
+//
+// // //Dispatch Store
+// // store.dispatch({
+// //     type: 'AN_ACTION'
+// // })
+//
+//
+// console.log('Store state at first:', store.getState())
+//
+// //Actions
+// var addItem = function (caption) {
+//   return {
+//     type: 'ADD_ITEM',
+//     caption: caption
+//   }
+// }
+//
+// var toggle = function (flag) {
+//   return {
+//     type: 'TOGGLE',
+//     isCompleted: flag
+//   }
+// }
+//
+//
+// //Dispatch
+// store.dispatch(addItem('First todo item'))
+// store.dispatch(toggle(false))
+//
+//
+// console.log('Store state after item addition:', store.getState())
+//
+//
+// //Presentation
+// class App extends Component {
+//   render() {
+//     return (
+//       <div >
+//         <p>Hello</p>
+//         as
+//       </div>
+//     );
+//   }
+// }
+// export default App

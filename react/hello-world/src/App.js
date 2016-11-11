@@ -7,7 +7,7 @@ class App extends Component {
     super();
 //Set state
     this.state = {
-      todos: [
+      todoItems: [
         {
 
         }
@@ -22,7 +22,10 @@ class App extends Component {
         <div className="container-fluid">
 
           <h2>Todo App</h2>
+          <UserInput onAddItem={this.onAddItemHandler.bind(this)}  />
         </div>
+
+        <TodoList items = {this.state.todoItems} onDeleteItem = {this.onDeleteHandler.bind(this)} />
       </div>
     );
   }
