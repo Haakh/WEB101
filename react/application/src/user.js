@@ -34,7 +34,7 @@ class UserInput extends React.Component {
     return (
       <div >
         <form className="input-group" onSubmit={this.onSubmitHandler.bind(that)}>
-          <input type="text"  placeholder ="Add More" className="form-control" value={this.state.input} onChange={this.onChangeHandler.bind(that)} />
+          <input type="text"  placeholder="Add More" className="form-control" value={this.state.input} onChange={this.onChangeHandler.bind(that)} />
           <span className="input-group-btn">
             <input type="submit" className="btn btn-default" value="Add item" />
           </span>

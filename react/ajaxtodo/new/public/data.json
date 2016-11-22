@@ -1,0 +1,24 @@
+{
+  "todo" : [
+    {
+      "caption": "Hello",
+      "isCompleted": false
+    },
+    {
+      "caption": "There",
+      "isCompleted": false
+    },
+    {
+      "caption": "Im a todo",
+      "isCompleted": false
+    },
+    {
+      "caption": "List",
+      "isCompleted": false
+    },
+    {
+      "caption": "Enter task",
+      "isCompleted": true
+    }
+  ]
+}

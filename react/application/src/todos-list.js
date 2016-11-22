@@ -17,7 +17,7 @@ class TodoList extends React.Component {
 
     var that = this;
 
-    return <ul className= "well well-sm">
+    return <ul className="well well-sm">
       {this.props.items.map(function(obj, index){
         return <TodoItem
           key={index}

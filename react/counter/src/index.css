@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+}
+
+.noStrike {
+  text-decoration: none;
+}
+
+.col {
+  background-color: blue;
+}
+
+#listitem {
+  margin: 10px;
+}
+/*.container {
+  width: 500px;
+}*/
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 670px;
+    }
+}
